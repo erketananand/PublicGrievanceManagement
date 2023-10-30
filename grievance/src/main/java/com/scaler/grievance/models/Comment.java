@@ -1,5 +1,6 @@
 package com.scaler.grievance.models;
 
+import com.scaler.shared.models.BaseModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import lombok.*;

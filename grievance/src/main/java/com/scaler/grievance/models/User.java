@@ -1,5 +1,6 @@
 package com.scaler.grievance.models;
 
+import com.scaler.shared.models.BaseModel;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.scaler.grievance.models;
+package com.scaler.shared.constants;
 
 public enum UserRole {
     USER,

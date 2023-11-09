@@ -8,6 +8,7 @@ import com.scaler.grievance.dtos.GrievanceRequestDto;
 import com.scaler.grievance.dtos.GrievanceResponseDto;
 import com.scaler.grievance.entities.*;
 import com.scaler.grievance.exceptions.GrievanceNotFoundException;
+import com.scaler.grievance.message.queues.NotificationEventService;
 import com.scaler.grievance.services.GrievanceService;
 import com.scaler.shared.exceptions.NotFoundException;
 import org.springframework.http.HttpStatus;
@@ -20,8 +21,10 @@ import java.util.*;
 @RequestMapping("/api/v1/grievances")
 public class GrievanceController {
     private GrievanceService grievanceService;
-    GrievanceController(GrievanceService grievanceService){
+    private NotificationEventService notificationEventService;
+    GrievanceController(GrievanceService grievanceService, NotificationEventService notificationEventService) {
         this.grievanceService = grievanceService;
+        this.notificationEventService = notificationEventService;
     }
 
     // Create Grievance
@@ -33,7 +36,9 @@ public class GrievanceController {
         // Manually validate and extract user information from the JWT token and handle exception of invalid tokens as well
         String username = grievanceService.validateAndExtractUsernameFromToken(jwtToken);
 
-        return grievanceService.createGrievance(grievanceRequest, username);
+        GrievanceResponseDto grievanceResponseDto = grievanceService.createGrievance(grievanceRequest, username);
+        notificationEventService.sendNotification(username, "NA", "Grievance Created", "Your grievance has been created successfully and your grievance ID is " + grievanceResponseDto.getId() + ".");
+        return grievanceResponseDto;
     }
 
     // Get Grievance by ID

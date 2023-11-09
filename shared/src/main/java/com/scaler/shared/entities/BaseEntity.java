@@ -1,16 +1,15 @@
-package com.scaler.shared.models;
+package com.scaler.shared.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @MappedSuperclass
 @Getter
 @Setter
-public class BaseModel {
+public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

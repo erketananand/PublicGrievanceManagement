@@ -1,6 +1,7 @@
-package com.scaler.grievance.models;
+package com.scaler.grievance.entities;
 
-import com.scaler.shared.models.BaseModel;
+import com.scaler.shared.constants.UserRole;
+import com.scaler.shared.entities.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,9 +11,8 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class User extends BaseModel {
+public class User extends BaseEntity {
     private String username;
-    private String email;
     private String password;
 
     @Enumerated(EnumType.STRING)

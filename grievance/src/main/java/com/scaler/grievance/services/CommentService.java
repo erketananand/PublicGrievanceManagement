@@ -1,12 +1,16 @@
 package com.scaler.grievance.services;
 
-import com.scaler.grievance.models.Comment;
+import com.scaler.grievance.dtos.CommentRequestDto;
+import com.scaler.grievance.dtos.CommentResponseDto;
+import com.scaler.grievance.dtos.GetAllCommentsResponseDto;
+import com.scaler.grievance.entities.Comment;
+import com.scaler.grievance.exceptions.GrievanceNotFoundException;
 
 import java.util.List;
 
 public interface CommentService {
-    Comment createComment(Long grievanceId, Comment comment);
+    CommentResponseDto createComment(Long grievanceId, CommentRequestDto commentRequest) throws GrievanceNotFoundException;
 
-    List<Comment> getCommentsForGrievance(Long grievanceId);
+    List<GetAllCommentsResponseDto> getCommentsForGrievance(Long grievanceId);
 }
 

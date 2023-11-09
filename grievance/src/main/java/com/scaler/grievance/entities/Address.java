@@ -1,6 +1,6 @@
-package com.scaler.grievance.models;
+package com.scaler.grievance.entities;
 
-import com.scaler.shared.models.BaseModel;
+import com.scaler.shared.entities.BaseEntity;
 import jakarta.persistence.Entity;
 import lombok.*;
 
@@ -10,7 +10,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Address extends BaseModel {
+public class Address extends BaseEntity {
     private String street;
     private String city;
     private String state;

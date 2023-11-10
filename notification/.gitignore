@@ -1,10 +1,24 @@
-HELP.md
-target/
+# Environment configuration files
+.env
+
+# Maven wrapper - exception for jar
 !.mvn/wrapper/maven-wrapper.jar
+
+# Compiled Java classes
+/target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+# Package files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IDE - Spring Tool Suite specific
 .apt_generated
 .classpath
 .factorypath
@@ -13,13 +27,13 @@ target/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
+# IDE - IntelliJ IDEA specific
 .idea
 *.iws
 *.iml
 *.ipr
 
-### NetBeans ###
+# IDE - NetBeans specific
 /nbproject/private/
 /nbbuild/
 /dist/
@@ -31,3 +45,14 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Log files
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# others
+HELP.md
+target/
